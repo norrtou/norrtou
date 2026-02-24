@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Våra tjänster - Norrtou Creations</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Våra tjänster — Norrtou Creations</title>
+    <meta name="description" content="Norrtou Creations kan copywriting, content, SEO, marknadsföring och utveckling.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <a class="skip-link" href="#main">Hoppa till innehåll</a>
     <header>
         <div class="container">
             <h1>Norrtou Creations</h1>
-            <nav>
-                <a href="index.html">Hem</a>
-                <a href="about.html">Om oss</a>
-                <a href="#projects">Projekt</a>
+            <nav role="navigation" aria-label="Huvudnavigering">
+                <a href="index.html" title="Hem - Norrtou Creations" aria-label="Hem">Hem</a>
+                <a href="about.html" title="Om Norrtou Creations" aria-label="Om Norrtou Creations">Om Norrtou Creations</a>
+                <a href="services.html" title="Våra tjänster" aria-label="Våra tjänster">Våra tjänster</a>
+                <a href="projects.html" title="Projekt" aria-label="Projekt">Projekt</a>
             </nav>
         </div>
     </header>
-    <main>
+
+    <main id="main" role="main">
         <section id="services">
             <div class="container">
                 <h2>Våra tjänster</h2>
-                <p>Placeholder text för våra tjänster. Här kan du lägga till mer information senare om copywriting, kodning, projektutveckling, etc.</p>
-                <p>Ytterligare placeholder: Lista över tjänster, priser, kontaktinformation.</p>
-                <svg width="200" height="150" viewBox="0 0 200 150" class="section-illustration">
-                    <!-- Vibrant illustration -->
-                    <ellipse cx="100" cy="75" rx="40" ry="25" fill="#007bff" stroke="#ff6b35" stroke-width="3"/>
-                    <rect x="50" y="50" width="40" height="40" fill="#ffc107" rx="5"/>
-                    <circle cx="150" cy="75" r="25" fill="#28a745"/>
+                <p>Copywriting, content, SEO, marknadsföring och utveckling — korta beskrivningar av vad vi erbjuder.</p>
+                <svg class="section-illustration" width="220" height="120" viewBox="0 0 220 120" aria-hidden="true">
+                    <rect x="6" y="6" width="208" height="108" rx="12" fill="#ffffff" opacity="0.06" />
+                    <rect x="64" y="30" width="92" height="54" rx="8" fill="#ffffff" opacity="0.12" />
                 </svg>
             </div>
         </section>
     </main>
+
     <footer>
         <div class="container">
             <p>&copy; 2026 Norrtou Creations. Alla rättigheter förbehållna.</p>
