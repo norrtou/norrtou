@@ -19,6 +19,13 @@ body {
     overflow: hidden;
 }
 
+.inter-NCheadline {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 48;
+  font-style: normal;
+}
+
 .skip-link:focus {
     left: 1rem;
     top: 1rem;
@@ -35,6 +42,11 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.brand-first {
+    font-weight: 100;
+    font-style: italic;
 }
 
 header {
@@ -82,9 +94,11 @@ main {
 }
 
 #hero h2 {
+    font-family: "inter", sans-serif;
     font-size: 3.25rem;
     margin: 0.25rem 0 0.5rem;
-    color: #000000; /* Headline black */
+    color: #000000;
+    font-weight: 400; /* normal for CREATIONS */
 }
 
 #hero p {
