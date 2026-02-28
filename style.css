@@ -6,7 +6,7 @@ body {
     background-color: #ff6b35; /* Orange background */
     color: #ffffff; /* Default body text: white */
     line-height: 1.6;
-    text-align: center;
+    text-align: justify;
 }
 
 /* Skip link for keyboard users */
@@ -42,6 +42,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    
 }
 
 .brand-first {
