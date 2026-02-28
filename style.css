@@ -94,11 +94,16 @@ main {
 }
 
 #hero h2 {
-    font-family: "inter", sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 3.25rem;
     margin: 0.25rem 0 0.5rem;
     color: #000000;
     font-weight: 400; /* normal for CREATIONS */
+}
+
+.brand-first {
+    font-weight: 100;
+    font-style: italic;
 }
 
 #hero p {
