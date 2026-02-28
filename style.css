@@ -94,11 +94,11 @@ main {
 }
 
 #hero h2 {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 3.25rem;
     margin: 0.25rem 0 0.5rem;
     color: #000000;
-    font-weight: 400; /* normal for CREATIONS */
+    font-weight: 400;
 }
 
 .brand-first {
