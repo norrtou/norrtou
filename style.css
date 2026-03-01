@@ -145,7 +145,7 @@ main {
 
 .card {
     background-color: rgba(255,255,255,0.95); /* near white */
-    padding: 1.25rem;
+    padding: 0.8rem;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     text-align: left;
@@ -157,7 +157,7 @@ main {
 }
 
 .card-illustration {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.2rem;
     max-width: 120px;
     height: auto;
 }
