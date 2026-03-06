@@ -1,44 +1,133 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Norrtou Creations</title>
-    <meta name="description" content="Norrtou Creations är en konsultbyrå i Norrto, Hörby, Skåne som kan copywriting, SEO, marknadsföring, översättning och webbutveckling."> 
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@1,100;0,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utveckling & programmering – norrtou CREATIONS | Kreativt Studio i Skåne</title>
+  <meta name="description" content="Utveckling och programmering av applikationer, plugins, webbapplikationer och spel i C++, HTML, CSS och Javascript. Jag arbetar även med WebAssembly.">"
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://norrtou.se/projects.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://norrtou.se/projects.html">
+  <meta property="og:title" content="Projekt – norrtou CREATIONS">
+  <meta property="og:description" content="Utveckling och programmering – spel, plugin, applikationer och utbildning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<section id="hero">
-    <div class="container">
-        <h2><span class="brand-first">norrtou</span> CREATIONS</h2>
-        <p class="tagline">Kommunikation & kreativitet</p>
-    </div>
-</section> 
-    <main id="main" role="main">
-        <section id="projects">
-            <div class="container">
-                <h2>Projekt & Cases</h2>
-                <br>
-                <a href="https://addajlang.wasmer.app/" target="_blank">
-                    <img src="addajlang.webp" alt="Simple snake game"></a>
-                <p>Äd daj lång och grann, ett ofärdigt maskenspel där jag helt enkelt bara ville se hur WebAssembly fungerar i praktiken. Hostat på Wasmer.</p>
-                <br>
-                <a href="https://breakout.wasmer.app/" target="_blank">
-                    <img src="breakout.webp" alt="Simple Breakout Game">
-                </a>
-                <p>Breakout, enkel version, gjord i Javascript. Hostat på Wasmer.</p>
-                <br>
-                </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Norrtou Creations. Alla rättigheter förbehållna.</p>
+<nav class="site-nav" id="site-nav" aria-label="Huvudnavigation">
+  <a href="index.html" class="nav-brand" aria-label="norrtou Creations – startsida">
+    <span class="brand-norrtou">norrtou</span>
+    <span class="brand-creations">Creations</span>
+  </a>
+  <ul class="nav-links" role="list">
+    <li><a href="about.html">Om</a></li>
+    <li><a href="projects.html" aria-current="page">Utveckling</a></li>
+    <li><a href="services.html">Övriga tjänster</a></li>
+    <li><a href="contact.html">Kontakt</a></li>
+  </ul>
+  <div class="nav-social" aria-label="Sociala medier">
+    <a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12C24 5.37 18.63 0 12 0z"/></svg></a>
+    <a href="https://www.linkedin.com/in/danielmedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Öppna meny"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Meny">
+  <nav class="mobile-menu-links"><a href="about.html">Om</a><a href="services.html">Tjänster</a><a href="projects.html">Projekt</a><a href="contact.html">Kontakt</a></nav>
+  <div class="mobile-menu-social"><a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/danielmedin" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+</div>
+
+<nav class="breadcrumb" aria-label="Brödsmulor"><a href="index.html">Hem</a><span class="breadcrumb-sep" aria-hidden="true">·</span><span>Projekt</span></nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="label r">Portfölj</p>
+    <h1 class="r d1">Applikationer jag byggt</h1>
+    <p class="lead r d2">Ja, jag är ny i branchen, men här kommer ett litet axplock av olika applikationer jag byggt under den korta tid som jag gått från ord till kod och mycket mer är på gång.</p>
+  </div>
+</div>
+
+<main>
+<section aria-labelledby="projects-h">
+  <div class="wrap">
+    <p class="label r">Projekttyper</p>
+    <h2 class="heading r d1" id="projects-h" style="margin-top:.75rem;margin-bottom:3rem;">Spel</h2>
+
+    <div class="project-list" role="list">
+      <div class="project-row r" role="listitem">
+        <span class="proj-num">01</span>
+        <div>
+          <div class="proj-name">Exempel 1</div>
+          <div class="proj-type">Beskrivning</div>
         </div>
-    </footer>
+        <span class="proj-arrow" aria-hidden="true">·</span>
+      </div>
+      <div class="project-row r d1" role="listitem">
+        <span class="proj-num">02</span>
+        <div>
+          <div class="proj-name">Exempel 2</div>
+          <div class="proj-type">Beskrivning · Beskrivning · Beskrivning · Beskrivning</div>
+        </div>
+        <span class="proj-arrow" aria-hidden="true">·</span>
+      </div>
+      <div class="project-row r d2" role="listitem">
+        <span class="proj-num">03</span>
+        <div>
+          <div class="proj-name">Exempel 3</div>
+          <div class="proj-type">Beskrivning · Beskrivning · Beskrivning · Beskrivning</div>
+        </div>
+        <span class="proj-arrow" aria-hidden="true">·</span>
+      </div>
+      <div class="project-row r d3" role="listitem">
+        <span class="proj-num">04</span>
+        <div>
+          <div class="proj-name">Exempel 4</div>
+          <div class="proj-type">Beskrivning · Beskrivning · Beskrivning</div>
+        </div>
+        <span class="proj-arrow" aria-hidden="true">·</span>
+      </div>
+      <div class="project-row r d4" role="listitem">
+        <span class="proj-num">05</span>
+        <div>
+          <div class="proj-name">Exempel 5</div>
+          <div class="proj-type">Beskrivning · Beskrivning · Beskrivning · Beskrivning</div>
+        </div>
+        <span class="proj-arrow" aria-hidden="true">·</span>
+      </div>
+    </div>
+
+    <div class="callout-box r">
+      <p class="callout-text">"Här kommer snart finnas mycket mer att se!"</p>
+      <a href="contact.html" class="btn btn-primary">Kontakta Daniel</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="alt-bg" aria-labelledby="collab-h">
+  <div class="wrap" style="max-width:680px;text-align:center;margin-left:auto;margin-right:auto;">
+    <p class="label r" style="justify-content:center;">Samarbete</p>
+    <h2 class="heading r d1" id="collab-h" style="margin-top:.75rem;margin-bottom:1.25rem;">Har du ett projekt i tankarna?</h2>
+    <p class="body-copy r d2" style="margin-bottom:2.5rem;">Norrtou Creations tar sig gärna an nya kreativa utmaningar – podcast, gamification, sociala medier eller något helt annat. Hör av dig och berätta mer.</p>
+    <div class="r d3" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Diskutera ditt projekt</a>
+      <a href="services.html" class="btn btn-outline">Se alla tjänster</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer"><div class="wrap"><div class="footer-inner">
+  <div class="footer-brand"><div class="fb-n">norrtou</div><div class="fb-c">Creations</div></div>
+  <p class="footer-copy">© 2026 norrtou Creations · Norrto, Skåne</p>
+  <nav class="footer-nav" aria-label="Sidfotslänkar"><a href="about.html">Om</a><a href="services.html">Tjänster</a><a href="projects.html">Projekt</a><a href="contact.html">Kontakt</a></nav>
+  <div class="footer-social"><a href="https://github.com/norrtoucreations" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12C24 5.37 18.63 0 12 0z"/></svg></a><a href="https://www.linkedin.com/in/daniel-norrtou" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
+</div></div></footer>
+<script src="js/main.js"></script>
 </body>
 </html>

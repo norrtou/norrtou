@@ -1,65 +1,439 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Norrtou Creations</title>
-    <meta name="description" content="Norrtou Creations är en byrå som kan copywriting, content, SEO, marknadsföring och utveckling inom HTML, CSS, Javascript, C++ och WebAssembly."> 
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@1,100;0,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>norrtou CREATIONS – Creative Studio & Narrative Engieneering</title>
+  <meta name="description" content="norrtou Creations är en kreativ studio i Skåne. Daniel arbetar som narrativ ingenjör med bakgrund inom copywriting, SEO, digitala strategier, podcast, film och webbutveckling. Idag ligger fokus på att skapa moderna applikationer.">
+  <meta name="author" content="Norrtou Creations">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://norrtou.se/">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://norrtou.se/">
+  <meta property="og:title"       content="norrtou CREATIONS – Creative Studio">
+  <meta property="og:description" content="Narrativ ingenjör och kreativt studio i Skåne. Ord, kod och berättelse i samspel.">
+  <meta property="og:locale"      content="sv_SE">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card"        content="summary">
+  <meta name="twitter:title"       content="norrtou CREATIONS">
+  <meta name="twitter:description" content="Kreativt studio i Skåne – narrativ ingenjör Daniel Norrtou.">
+
+  <!-- Fonts — preconnect reduces render-blocking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured Data — Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://norrtou.se/#org",
+        "name": "norrtou Creations",
+        "url": "https://norrtou.se",
+        "description": "Kreativt studio i Norrto, Skåne. Specialiserat på narrativ ingenjörskonst – copywriting, SEO, digitala strategier, podcast, film och webbutveckling.",
+        "foundingLocation": { "@type": "Place", "name": "Norrto, Skåne, Sverige" },
+        "founder": { "@type": "Person", "name": "Daniel", "jobTitle": "Narrativ ingenjör" },
+        "sameAs": [
+          "https://github.com/norrtoucreations",
+          "https://www.linkedin.com/in/daniel-norrtou"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://norrtou.se/#site",
+        "url": "https://norrtou.se",
+        "name": "norrtou Creations",
+        "publisher": { "@id": "https://norrtou.se/#org" },
+        "inLanguage": "sv"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-        <main id="main" role="main">
-<section id="hero">
-    <div class="container">
-        <h2><span class="brand-first">norrtou</span> CREATIONS</h2>
-       
-        <p class="tagline">Kommunikation & kreativitet</p>
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav class="site-nav" id="site-nav" aria-label="Huvudnavigation">
+  <a href="index.html" class="nav-brand" aria-label="norrtou Creations – startsida">
+    <span class="brand-norrtou">norrtou</span>
+    <span class="brand-creations">Creations</span>
+  </a>
+
+  <ul class="nav-links" role="list">
+    <li><a href="about.html">Om</a></li>
+    <li><a href="projects.html">Utveckling</a></li>
+    <li><a href="services.html">Övriga tjänster</a></li>
+    <li><a href="contact.html">Kontakt</a></li>
+  </ul>
+
+  <div class="nav-social" aria-label="Sociala medier">
+    <!-- TODO: Replace href with your actual GitHub URL -->
+    <a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer" aria-label="Norrtou Creations på GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12C24 5.37 18.63 0 12 0z"/></svg>
+    </a>
+    <!-- TODO: Replace href with your actual LinkedIn URL -->
+    <a href="https://www.linkedin.com/in/danielmedin/" target="_blank" rel="noopener noreferrer" aria-label="Daniel på LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+    </a>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Öppna meny">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Meny">
+  <nav class="mobile-menu-links" aria-label="Mobilnavigation">
+    <a href="about.html">Om</a>
+    <a href="projects.html">Utveckling</a>
+    <a href="services.html">Övriga tjänster</a>
+        <a href="contact.html">Kontakt</a>
+  </nav>
+  <div class="mobile-menu-social">
+    <a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12C24 5.37 18.63 0 12 0z"/></svg>
+      GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/danielmedin/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" width="16" height="16"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<header class="hero" id="top">
+  <!-- Topographic SVG — two terrain formations -->
+  <svg class="hero-topo" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none">
+      <!-- Moss-green formation, right side -->
+      <ellipse stroke="#3d7050" stroke-width=".8" cx="920" cy="360" rx="540" ry="300"/>
+      <ellipse stroke="#3d7050" stroke-width=".7" cx="920" cy="360" rx="450" ry="245"/>
+      <ellipse stroke="#3d7050" stroke-width=".65" cx="920" cy="360" rx="360" ry="190"/>
+      <ellipse stroke="#3d7050" stroke-width=".6" cx="920" cy="360" rx="270" ry="138"/>
+      <ellipse stroke="#3d7050" stroke-width=".5" cx="920" cy="360" rx="185" ry="92"/>
+      <ellipse stroke="#3d7050" stroke-width=".4" cx="920" cy="360" rx="100" ry="48"/>
+      <!-- Petroleum formation, lower left -->
+      <ellipse stroke="#2e687a" stroke-width=".7" cx="180" cy="620" rx="320" ry="190"/>
+      <ellipse stroke="#2e687a" stroke-width=".6" cx="180" cy="620" rx="245" ry="145"/>
+      <ellipse stroke="#2e687a" stroke-width=".5" cx="180" cy="620" rx="170" ry="98"/>
+      <ellipse stroke="#2e687a" stroke-width=".4" cx="180" cy="620" rx="95" ry="55"/>
+      <!-- Horizontal survey lines -->
+      <line stroke="#3d7050" stroke-width=".5" x1="0" y1="160" x2="1200" y2="130" opacity=".5"/>
+      <line stroke="#3d7050" stroke-width=".4" x1="0" y1="230" x2="1200" y2="200" opacity=".35"/>
+      <line stroke="#2e687a" stroke-width=".4" x1="0" y1="500" x2="1200" y2="478" opacity=".3"/>
+    </g>
+  </svg>
+
+  <div class="hero-watermark" aria-hidden="true">N</div>
+
+  <!-- Hero content -->
+  <div class="hero-content">
+    <div class="hero-kicker">
+      <span class="kicker-dot" aria-hidden="true"></span>
+      Creative Studio — Norrto, Skåne
     </div>
-</section>
-        <section id="featured">
-            <div class="container">
-                <div class="grid">
-                    <article class="card">
-                        <svg class="card-illustration" width="120" height="80" viewBox="0 0 120 80" aria-hidden="true">
-                            <rect x="6" y="6" width="108" height="68" rx="10" fill="#ffffff" opacity="0.06" />
-                            <circle cx="36" cy="40" r="18" fill="#ffffff" opacity="0.14" />
-                        </svg>
-                        <h3>Om Norrtou Creations</h3>
-                        <p>Jag driver en liten byrå i Norrto, i hjärtat av Skåne, med fokus på kommunikation och kreativitet. Här möter du personlig service, lång erfarenhet och ett genuint intresse för ord både på svenska och engelska, för alla branscher och målgrupper.</p>
-                        <a class="read-more" href="about.html" title="Läs mer om Norrtou Creations">Läs mer om Norrtou Creations</a>
-                    </article>
 
-                    <article class="card">
-                        <svg class="card-illustration" width="120" height="80" viewBox="0 0 120 80" aria-hidden="true">
-                            <rect x="6" y="6" width="108" height="68" rx="10" fill="#ffffff" opacity="0.06" />
-                            <rect x="40" y="24" width="40" height="32" rx="6" fill="#ffffff" opacity="0.14" />
-                        </svg>
-                        <h3>Våra tjänster</h3>
-                        <p>Copywriting, SEO-analys, digitala strategier, film- och podcastproduktion, skrivcoachning och webbutveckling inklusive WebAssembly. Jag hjälper dig synas, kommunicera tydligare och nå rätt målgrupp – oavsett om du är ett litet företag eller en etablerad aktör.</p>
-                        <a class="read-more" href="services.html" title="Läs mer om våra tjänster">Läs mer om våra tjänster</a>
-                    </article>
+    <h1 class="hero-headline" id="hero-headline">
+      <span class="hl-norrtou">norrtou</span>
+      <span class="hl-creations">CREATIONS</span>
+    </h1>
 
-                    <article class="card">
-                        <svg class="card-illustration" width="120" height="80" viewBox="0 0 120 80" aria-hidden="true">
-                            <rect x="6" y="6" width="108" height="68" rx="10" fill="#ffffff" opacity="0.06" />
-                            <circle cx="80" cy="40" r="12" fill="#ffffff" opacity="0.14" />
-                        </svg>
-                        <h3>Projekt</h3>
-                        <p>Här ser du exempel på olika texter, webbprojekt och lösningar som jag arbetat med. Norrtou Creations tar sig gärna an nya kreativa utmaningar. Har du tankar kring podcast? Sociala medier? Gamification? Hör av dig så diskuterar vi.</p>
-                        <a class="read-more" href="projects.html" title="Läs mer om våra projekt">Läs mer om våra projekt</a>
-                        
-                    </article>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Norrtou Creations. Alla rättigheter förbehållna.</p>
+    <p class="hero-sub" id="hero-sub">Narrative applications and communicative solutions</p>
+
+    <p class="hero-desc" id="hero-desc">
+      Jag konstruerar applikationer och lösningar för moderna behov. Fokus ligger på det mänskliga och kreativa berättandet i enkla applikationer och kommunikation. Från spel till plugins till webbplatser och strategier tar jag fram lösningar som passar just dina behov.
+    </p>
+
+    <div class="hero-actions" id="hero-actions">
+      <a href="services.html" class="btn btn-primary">Utforska tjänster</a>
+      <a href="contact.html" class="btn btn-outline">Kontakta Daniel</a>
+    </div>
+  </div>
+
+  <!-- Status bar -->
+  <div class="hero-bar" aria-hidden="true">
+    <span>© 2026 norrtou Creations</span>
+    <div class="scroll-cue">
+      <span class="scroll-track"></span>
+      Scrolla
+    </div>
+    <span>55° N · 13° E</span>
+  </div>
+</header>
+
+
+<main>
+<!-- ════════════════════════════════════════
+     STUDIO INTRO
+════════════════════════════════════════ -->
+<section aria-labelledby="studio-heading">
+  <div class="wrap">
+    <div class="col-2">
+
+      <div>
+        <div class="section-intro">
+          <p class="label r">Studion</p>
+          <h2 class="heading r d1" id="studio-heading">
+            Från ord till kod
+          </h2>
         </div>
-    </footer>
+        <p class="body-copy r d2">
+          Norrtou Creations är en kreativ studio i Norrto, Skåne som arbetar med narrativa och kreativa applikationslösningar. Byrån grundades 2019 som en mer renodlad copywriter men har under åren utvecklats till en att hantera allt inom kommunikation, content och copywriting.
+        </p>
+        <p class="body-copy r d2" style="margin-top:1rem;">
+          Sedan 2026 sadlar vi om mot utveckling och applikationer som vårt huvudfokus. 
+        </p>
+
+    
+
+        <div class="link-list r d3">
+          <a href="about.html">
+            Mer om Norrtou Creations och Daniel
+            <span class="link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════════
+     TJÄNSTER
+════════════════════════════════════════ -->
+<section class="alt-bg" aria-labelledby="services-heading">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <p class="label r">Tjänster</p>
+        <h2 class="heading r d1" id="services-heading">
+          Vad Norrtou Creations erbjuder
+        </h2>
+      </div>
+      <p class="body-copy r d2">
+        Från utveckling till kommunikation.
+      </p>
+    </div>
+
+    <div class="services-grid r" role="list">
+      <article class="service-tile" role="listitem">
+        <span class="service-num">01</span>
+        <h3 class="service-name">Utveckling</h3>
+        <p class="service-body">Applikationer och webbutveckling med fokus på det kreativa och tillgängliga.</p>
+        <a href="services/utveckling.html" class="service-cta">Läs mer →</a>
+      </article>
+      <article class="service-tile" role="listitem">
+        <span class="service-num">02</span>
+        <h3 class="service-name">Copywriting</h3>
+        <p class="service-body">Strategiska texter som säljer, engagerar och speglar ditt varumärke – på svenska och engelska.</p>
+        <a href="services/copywriting.html" class="service-cta">Läs mer →</a>
+      </article>
+      <article class="service-tile" role="listitem">
+        <span class="service-num">03</span>
+        <h3 class="service-name">Digitala strategier</h3>
+        <p class="service-body">Helhetsbild och handlingsplan för din digitala närvaro – från analys till exekvering.</p>
+        <a href="services/digital-strategi.html" class="service-cta">Läs mer →</a>
+      </article>
+      <article class="service-tile" role="listitem">
+        <span class="service-num">04</span>
+        <h3 class="service-name">Film &amp; podcast</h3>
+        <p class="service-body">Rörligt berättande – produktion, manus och distribution för ljud och bild som fastnar.</p>
+        <a href="services/film-podcast.html" class="service-cta">Läs mer →</a>
+      </article>
+      <article class="service-tile" role="listitem">
+        <span class="service-num">05</span>
+        <h3 class="service-name">SEO-analys</h3>
+        <p class="service-body">Teknisk och innehållsmässig sökmotoroptimering – synlighet på rätt plats, för rätt publik.</p>
+        <a href="services/seo.html" class="service-cta">Läs mer →</a>
+      </article>
+      <article class="service-tile" role="listitem">
+        <span class="service-num">06</span>
+        <h3 class="service-name">Webbutveckling</h3>
+        <p class="service-body">Statiska sajter och WebAssembly – kod i berättandets tjänst. Snabb, tillgänglig, väloptimerad.</p>
+        <a href="services/webbutveckling.html" class="service-cta">Läs mer →</a>
+      </article>
+    </div>
+
+    <div style="text-align:center; margin-top:3rem;" class="r">
+      <a href="services.html" class="btn btn-outline">Alla tjänster</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════════
+     PROJEKT
+════════════════════════════════════════ -->
+<section aria-labelledby="projects-heading">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <p class="label r">Projekt</p>
+        <h2 class="heading r d1" id="projects-heading">
+          Berättelser vi byggt
+        </h2>
+      </div>
+      <p class="body-copy r d2">
+        Texter, sajter, podcast och strategi. Kreativa utmaningar välkomnas alltid – hör av dig med din idé.
+      </p>
+    </div>
+
+    <div class="project-list" role="list">
+      <a href="projects.html" class="project-row r" role="listitem">
+        <span class="proj-num">01</span>
+        <div>
+          <div class="proj-name">Webbutveckling &amp; digitala lösningar</div>
+          <div class="proj-type">WebAssembly · Statiska sajter · GitHub Pages</div>
+        </div>
+        <span class="proj-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="projects.html" class="project-row r d1" role="listitem">
+        <span class="proj-num">02</span>
+        <div>
+          <div class="proj-name">Podcast &amp; filmproduktion</div>
+          <div class="proj-type">Manus · Produktion · Berättelse</div>
+        </div>
+        <span class="proj-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="projects.html" class="project-row r d2" role="listitem">
+        <span class="proj-num">03</span>
+        <div>
+          <div class="proj-name">Copywriting &amp; SEO-strategi</div>
+          <div class="proj-type">Text · Nyckelord · Konvertering</div>
+        </div>
+        <span class="proj-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="callout-box r">
+      <p class="callout-text">"Alla branscher, alla målgrupper – en ingenjör som förstår hela kedjan."</p>
+      <a href="projects.html" class="btn btn-outline">Se alla projekt</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════════
+     PROCESS
+════════════════════════════════════════ -->
+<section class="alt-bg" aria-labelledby="process-heading">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <p class="label r">Arbetsprocess</p>
+        <h2 class="heading r d1" id="process-heading">
+          Hur vi arbetar
+        </h2>
+      </div>
+      <p class="body-copy r d2">
+        Tydliga steg, transparent kommunikation och ett genuint intresse för ditt projekt – från idé till leverans.
+      </p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step r">
+        <div class="step-marker" aria-hidden="true">01</div>
+        <h3 class="step-title">Lyssna</h3>
+        <p class="step-desc">Vi börjar med att verkligen förstå dina mål, din bransch och din målgrupp. Inga antaganden.</p>
+      </div>
+      <div class="process-step r d1">
+        <div class="step-marker" aria-hidden="true">02</div>
+        <h3 class="step-title">Kartlägga</h3>
+        <p class="step-desc">Ingenjörsmässig analys av kommunikationslandskapet – vad som fungerar, vad som saknas.</p>
+      </div>
+      <div class="process-step r d2">
+        <div class="step-marker" aria-hidden="true">03</div>
+        <h3 class="step-title">Konstruera</h3>
+        <p class="step-desc">Ord, kod, ljud eller bild – vi bygger med precision och omsorg om varje detalj.</p>
+      </div>
+      <div class="process-step r d3">
+        <div class="step-marker" aria-hidden="true">04</div>
+        <h3 class="step-title">Leverera</h3>
+        <p class="step-desc">Tydlig leverans, uppföljning och möjlighet till fortsatt samarbete på lång sikt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════════
+     KONTAKT CTA
+════════════════════════════════════════ -->
+<section aria-labelledby="cta-heading">
+  <div class="wrap" style="text-align:center; max-width:680px;">
+    <p class="label r" style="justify-content:center;">Nästa steg</p>
+    <h2 class="heading r d1" id="cta-heading" style="margin-top:.75rem; margin-bottom:1.25rem;">
+      Har du ett projekt i tankarna?
+    </h2>
+    <p class="body-copy r d2" style="margin-bottom:2.5rem;">
+      Oavsett om det är ett konkret uppdrag eller en idé du vill bolla – hör av dig. Daniel svarar personligt och snabbt.
+    </p>
+    <div class="r d3" style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Kontakta Daniel</a>
+      <a href="about.html" class="btn btn-outline">Läs om studion</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="fb-n">norrtou</div>
+        <div class="fb-c">Creations</div>
+      </div>
+
+      <p class="footer-copy">© 2026 norrtou Creations · Norrto, Skåne</p>
+
+      <nav class="footer-nav" aria-label="Sidfotslänkar">
+        <a href="about.html">Om</a>
+        <a href="services.html">Tjänster</a>
+        <a href="projects.html">Projekt</a>
+        <a href="contact.html">Kontakt</a>
+      </nav>
+
+      <div class="footer-social" aria-label="Sociala medier">
+        <a href="https://github.com/norrtoucreations" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12C24 5.37 18.63 0 12 0z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/daniel-norrtou" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>

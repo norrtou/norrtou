@@ -1,0 +1,7 @@
+# norrtou Creations — robots.txt
+# https://norrtou.se
+
+User-agent: *
+Allow: /
+
+Sitemap: https://norrtou.se/sitemap.xml
