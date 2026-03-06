@@ -1639,6 +1639,37 @@ textarea.form-input {
   /* Show mobile menu overlay when open */
   .mobile-menu { display: flex; }
 
+  /* ── MOBILE OVERFLOW FIXES ── */
+
+  /* Clip the hero so the watermark "N" and glow blobs
+     cannot create horizontal scroll */
+  .hero {
+    overflow: hidden;
+    padding-top: calc(var(--nav-h) + 3rem);
+    padding-bottom: 2.5rem;
+  }
+
+  /* Shrink watermark further and pull it fully inside */
+  .hero-watermark {
+    font-size: 9rem;
+    right: 0;
+    opacity: .04;
+  }
+
+  /* Tighten letter-spacing on CREATIONS so it stays within gutter */
+  .hero-headline .hl-creations {
+    letter-spacing: .02em;
+  }
+
+  /* Stack hero-bar vertically so three items don't fight for width */
+  .hero-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .4rem;
+  }
+
+  /* ── END MOBILE OVERFLOW FIXES ── */
+
   .services-grid { grid-template-columns: 1fr; }
 
   .stat-row { grid-template-columns: 1fr 1fr; }
@@ -1650,15 +1681,6 @@ textarea.form-input {
   .project-row { grid-template-columns: 2.5rem 1fr auto; gap: 1rem; }
 
   .breadcrumb { padding-top: calc(var(--nav-h) + 1rem); }
-
-  .hero {
-    padding-top: calc(var(--nav-h) + 3rem);
-    padding-bottom: 2.5rem;
-  }
-
-  .hero-bar { gap: .75rem; }
-
-  .hero-watermark { font-size: 12rem; right: -1rem; opacity: .04; }
 
   /* Form card full-padding on mobile */
   .form-card { padding: 2rem 1.5rem; }
@@ -1673,7 +1695,14 @@ textarea.form-input {
 /* ── 20. Responsive — Small (≤ 380px) ────────────────────── */
 
 @media (max-width: 380px) {
+  :root { --gutter: 1rem; }
+
   .stat-row { grid-template-columns: 1fr; }
-  .hero-headline .hl-norrtou { font-size: 2.4rem; }
-  .hero-headline .hl-creations { font-size: 2.1rem; }
+
+  /* Reduce headline sizes to ensure they fit narrow screens */
+  .hero-headline .hl-norrtou  { font-size: 2.2rem; letter-spacing: -.01em; }
+  .hero-headline .hl-creations { font-size: 1.9rem; letter-spacing: .01em; }
+
+  /* Hide coordinates on very small screens to keep hero-bar clean */
+  .hero-bar span:last-child { display: none; }
 }
