@@ -688,6 +688,12 @@ button {
   transition: opacity .8s var(--ease-out) .4s, transform .8s var(--ease-out) .4s;
 }
 
+#hero-desc {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 .hero-desc.loaded { opacity: 1; transform: none; }
 
 /* Hero CTA buttons row */
