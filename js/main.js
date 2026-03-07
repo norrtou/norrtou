@@ -17,8 +17,9 @@
 
   /* ─────────────────────────────────────────────────────────
      1. Hero Entrance Animation
-     Triggers CSS transitions by adding .loaded classes after
-     fonts have had a frame to render.
+     Adds .loaded immediately — no setTimeout delay.
+     hero-desc is the LCP element and must not be held back.
+     CSS transitions still run, they just start right away.
   ───────────────────────────────────────────────────────── */
   function initHero() {
     var headline = document.getElementById('hero-headline');
@@ -26,45 +27,46 @@
     var desc     = document.getElementById('hero-desc');
     var actions  = document.getElementById('hero-actions');
 
-    if (!headline) return; // not on a hero page
+    if (!headline) return;
 
-    // rAF gives fonts a moment to swap in before transition runs
-    requestAnimationFrame(function () {
-      setTimeout(function () {
-        if (headline) headline.classList.add('loaded');
-        if (sub)      sub.classList.add('loaded');
-        if (desc)     desc.classList.add('loaded');
-        if (actions)  actions.classList.add('loaded');
-      }, 60);
-    });
+    if (headline) headline.classList.add('loaded');
+    if (sub)      sub.classList.add('loaded');
+    if (desc)     desc.classList.add('loaded');
+    if (actions)  actions.classList.add('loaded');
   }
 
 
   /* ─────────────────────────────────────────────────────────
      2. Navigation Scroll Behaviour
-     Adds .scrolled to <nav> when page is scrolled past
-     threshold, enabling the frosted-glass background.
+     Initial state check deferred to rAF to avoid forced
+     reflow at page load.
   ───────────────────────────────────────────────────────── */
   function initNav() {
     var nav = document.getElementById('site-nav');
     if (!nav) return;
 
     var threshold = 80;
+    var ticking = false;
 
-    function onScroll() {
+    function updateNav() {
       nav.classList.toggle('scrolled', window.pageYOffset > threshold);
+      ticking = false;
     }
 
-    // Set initial state (e.g. page loaded mid-scroll)
-    onScroll();
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateNav);
+        ticking = true;
+      }
+    }
+
+    requestAnimationFrame(updateNav);
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
 
   /* ─────────────────────────────────────────────────────────
      3. Mobile Menu Toggle
-     Toggles the full-screen overlay menu and manages
-     aria-expanded + body scroll lock.
   ───────────────────────────────────────────────────────── */
   function initMobileMenu() {
     var hamburger  = document.getElementById('hamburger');
@@ -75,7 +77,7 @@
     function openMenu() {
       hamburger.setAttribute('aria-expanded', 'true');
       mobileMenu.classList.add('open');
-      document.body.style.overflow = 'hidden'; // prevent background scroll
+      document.body.style.overflow = 'hidden';
     }
 
     function closeMenu() {
@@ -89,13 +91,11 @@
       isOpen ? closeMenu() : openMenu();
     });
 
-    // Close when a nav link is clicked
     var menuLinks = mobileMenu.querySelectorAll('a');
     menuLinks.forEach(function (link) {
       link.addEventListener('click', closeMenu);
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
     });
@@ -104,15 +104,9 @@
 
   /* ─────────────────────────────────────────────────────────
      4. Scroll-Reveal (IntersectionObserver)
-     Observes all elements with class .r and adds .in when
-     they enter the viewport. Delays are set via CSS classes
-     .d1 – .d5 so no JS timing logic needed here.
   ───────────────────────────────────────────────────────── */
   function initReveal() {
-    // Guard for older browsers (though GitHub Pages users are
-    // unlikely to be on very old environments)
     if (!('IntersectionObserver' in window)) {
-      // Fallback: just show everything immediately
       var els = document.querySelectorAll('.r');
       els.forEach(function (el) { el.classList.add('in'); });
       return;
@@ -122,7 +116,6 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('in');
-          // Unobserve after reveal — no need to keep watching
           observer.unobserve(entry.target);
         }
       });
@@ -138,22 +131,27 @@
 
   /* ─────────────────────────────────────────────────────────
      5. Active Nav-Link Highlighting
-     Marks the current page link with aria-current="page"
-     by comparing href to the current URL path.
+     Batch reads before writes to avoid repeated reflows.
   ───────────────────────────────────────────────────────── */
   function initActiveNav() {
     var links = document.querySelectorAll('.nav-links a, .mobile-menu-links a');
     var path  = window.location.pathname;
 
+    // Read all hrefs first
+    var resolved = [];
     links.forEach(function (link) {
       var href = link.getAttribute('href') || '';
-      // Resolve relative hrefs to compare properly
-      var resolved = new URL(href, window.location.href).pathname;
+      var a = document.createElement('a');
+      a.href = href;
+      resolved.push(a.pathname);
+    });
 
-      // Exact match, or /services/ prefix match
+    // Then write in one pass
+    links.forEach(function (link, i) {
+      var r = resolved[i];
       if (
-        resolved === path ||
-        (resolved !== '/' && path.indexOf(resolved.replace(/index\.html$/, '')) === 0)
+        r === path ||
+        (r !== '/' && path.indexOf(r.replace(/index\.html$/, '')) === 0)
       ) {
         link.setAttribute('aria-current', 'page');
       }
@@ -163,9 +161,6 @@
 
   /* ─────────────────────────────────────────────────────────
      6. Contact Form Feedback
-     For static GitHub Pages deployments, the form action
-     should point to a service like Formspree. This provides
-     graceful visual feedback for valid/invalid submissions.
   ───────────────────────────────────────────────────────── */
   function initForm() {
     var form = document.getElementById('contact-form');
@@ -174,7 +169,6 @@
     form.addEventListener('submit', function (e) {
       var actionUrl = form.getAttribute('action');
 
-      // If action is still placeholder ('#'), show a clear note
       if (!actionUrl || actionUrl === '#') {
         e.preventDefault();
         var note = form.querySelector('.form-note');
@@ -184,36 +178,13 @@
         }
         return;
       }
-
-      // For real Formspree / Netlify Forms submissions via fetch
-      // Uncomment and adapt if you want AJAX submission:
-      /*
-      e.preventDefault();
-      var data = new FormData(form);
-      fetch(actionUrl, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(function (res) {
-        if (res.ok) {
-          form.innerHTML = '<p class="body-copy" style="color:var(--sage);">Tack! Jag återkommer så snart som möjligt.</p>';
-        } else {
-          throw new Error('Server error');
-        }
-      })
-      .catch(function () {
-        var note = form.querySelector('.form-note');
-        if (note) note.textContent = 'Något gick fel. Försök igen eller kontakta direkt.';
-      });
-      */
     });
   }
 
 
   /* ─────────────────────────────────────────────────────────
-     Init — run all modules on DOMContentLoaded
-  ───────────────────────────────────────────────────────── */
+     Init
+  ───────────────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     initHero();
     initNav();
