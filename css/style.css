@@ -1636,6 +1636,11 @@ textarea.form-input {
     max-width: 100vw;
   }
 
+/* LCP-fix: säkerställ att hero-desc aldrig döljs för länge */
+#hero-desc {
+  content-visibility: auto;
+}
+
   /* Hide desktop nav links and social — show hamburger */
   .nav-links,
   .nav-social { display: none; }
