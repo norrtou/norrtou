@@ -1630,6 +1630,12 @@ textarea.form-input {
     --nav-h: 3.75rem;
   }
 
+  /* Prevent any child from creating horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
   /* Hide desktop nav links and social — show hamburger */
   .nav-links,
   .nav-social { display: none; }
@@ -1641,27 +1647,47 @@ textarea.form-input {
 
   /* ── MOBILE OVERFLOW FIXES ── */
 
-  /* Clip the hero so the watermark "N" and glow blobs
-     cannot create horizontal scroll */
   .hero {
     overflow: hidden;
     padding-top: calc(var(--nav-h) + 3rem);
     padding-bottom: 2.5rem;
   }
 
-  /* Shrink watermark further and pull it fully inside */
+  /* Constrain hero content strictly to available width */
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Hide watermark — it's decorative and was causing layout issues */
   .hero-watermark {
-    font-size: 9rem;
-    right: 0;
-    opacity: .04;
+    display: none;
   }
 
-  /* Tighten letter-spacing on CREATIONS so it stays within gutter */
+  /* Shrink CREATIONS font-size so it fits within gutter on iPhone */
   .hero-headline .hl-creations {
-    letter-spacing: .02em;
+    font-size: clamp(1.9rem, 8.5vw, 2.5rem);
+    letter-spacing: .01em;
   }
 
-  /* Stack hero-bar vertically so three items don't fight for width */
+  /* Reduce norrtou size slightly for balance */
+  .hero-headline .hl-norrtou {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
+  /* hero-sub: tighten letter-spacing so the long line wraps cleanly */
+  .hero-sub {
+    letter-spacing: .06em;
+    font-size: .62rem;
+  }
+
+  /* hero-desc: remove fixed max-width so it respects the gutter */
+  .hero-desc {
+    max-width: 100%;
+  }
+
+  /* Stack hero-bar vertically */
   .hero-bar {
     flex-direction: column;
     align-items: flex-start;
@@ -1682,7 +1708,6 @@ textarea.form-input {
 
   .breadcrumb { padding-top: calc(var(--nav-h) + 1rem); }
 
-  /* Form card full-padding on mobile */
   .form-card { padding: 2rem 1.5rem; }
 
   .footer-inner { flex-direction: column; gap: 2rem; }
@@ -1699,10 +1724,8 @@ textarea.form-input {
 
   .stat-row { grid-template-columns: 1fr; }
 
-  /* Reduce headline sizes to ensure they fit narrow screens */
-  .hero-headline .hl-norrtou  { font-size: 2.2rem; letter-spacing: -.01em; }
-  .hero-headline .hl-creations { font-size: 1.9rem; letter-spacing: .01em; }
+  .hero-headline .hl-norrtou   { font-size: 1.9rem; }
+  .hero-headline .hl-creations { font-size: 1.7rem; letter-spacing: .01em; }
 
-  /* Hide coordinates on very small screens to keep hero-bar clean */
   .hero-bar span:last-child { display: none; }
 }
