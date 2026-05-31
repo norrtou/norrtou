@@ -109,6 +109,8 @@
     if (!('IntersectionObserver' in window)) {
       var els = document.querySelectorAll('.r');
       els.forEach(function (el) { el.classList.add('in'); });
+      /* Expose a no-op so github.js can still reveal its cards */
+      window.norrtouObserve = function (el) { el.classList.add('in'); };
       return;
     }
 
@@ -126,6 +128,9 @@
 
     var revealEls = document.querySelectorAll('.r');
     revealEls.forEach(function (el) { observer.observe(el); });
+
+    /* Let other scripts (github.js) register elements added after load */
+    window.norrtouObserve = function (el) { observer.observe(el); };
   }
 
 
