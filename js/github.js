@@ -113,7 +113,7 @@
 
     var links = '<a href="' + esc(repo.html_url) + '" target="_blank" rel="noopener noreferrer">' + GH_ICON + ' Kod</a>';
     if (demo) {
-      links += '<a href="' + esc(demo) + '" target="_blank" rel="noopener noreferrer">↗ Öppna demo</a>';
+      links += '<a href="' + esc(demo) + '" target="_blank" rel="noopener noreferrer">↗ Testa appen</a>';
     }
 
     return '<article class="repo-card r">' +
