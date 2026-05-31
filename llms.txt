@@ -1,0 +1,31 @@
+# norrtou Creations
+
+> norrtou Creations är en enmansstudio i Norrto, Skåne som utvecklar appar och webbappar med fokus på tillgänglighet och människan. Studion grundades 2019 inom copywriting och kommunikation och har sedan 2026 utveckling som huvudfokus. Bakom studion står Daniel – utvecklare med bakgrund som skribent sedan 90-talet och kommunikationsstrateg. Arbetar i hela Sverige och internationellt på engelska.
+
+## Huvudfokus: utveckling
+
+- [Appar & tillgänglighet](https://norrtou.se/services/accessibilitysolutions.html): Webbappar och verktyg inom rehab, arbetsterapi och hälsa. Inkluderande och användarvänligt, byggt enligt WCAG.
+- [Webbutveckling](https://norrtou.se/services/webbutveckling.html): Statiska sajter, WebAssembly och GitHub Pages. Snabbt, säkert och SEO-optimerat.
+- [Projekt](https://norrtou.se/projects.html): Publika projekt (appar, webbappar, spel) som hämtas live från GitHub – t.ex. Norrtounia (dungeon crawler), Snake (WebAssembly) och Anatomiquiz.
+
+## Övriga tjänster
+
+- [Copywriting](https://norrtou.se/services/copywriting.html): Strategiska texter på svenska och engelska – webb, sociala medier, e-post samt kvalificerade och tekniska texter.
+- [Digital strategi](https://norrtou.se/services/digital-strategi.html): Nulägesanalys, kanalstrategi, målgrupp och innehållsplan som hänger ihop.
+- [SEO](https://norrtou.se/services/seo.html): Teknisk SEO, strukturerad data och innehåll som både Google, AI och besökare gillar.
+- [Sociala medier & podcast](https://norrtou.se/services/socialamedier-podcast.html): Strategi och produktion för en närvaro som håller.
+
+## Om & kontakt
+
+- [Om studion](https://norrtou.se/about.html): Bakgrund, kompetenser och hur ord och kod hänger ihop.
+- [Kontakt](https://norrtou.se/contact.html): Kontaktformulär. Svar vanligtvis inom 24 timmar.
+- GitHub: https://github.com/norrtou
+- LinkedIn: https://www.linkedin.com/in/danielmedin
+
+## Fakta
+
+- Namn: norrtou Creations
+- Ort: Norrto, Skåne, Sverige
+- Grundat: 2019
+- Inriktning sedan 2026: utveckling av appar och webbappar
+- Arbetsområde: Sverige + internationellt (engelska)
