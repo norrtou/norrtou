@@ -32,7 +32,7 @@
     descriptions: {
       'norrtounia': {
         title: 'Norrtounia — The Dark Forest',
-        desc: 'Ett textbaserat dungeon crawler-äventyr som körs direkt i webbläsaren. Ge dig in i Norrtounias mörka skog – överlever du?'
+        desc: 'Ett textbaserat retro-dungeon crawler i en mörk fantasyvärld. Träd in i Norrtounias förbannade skog, där skuggor vandrar – överlever du?'
       },
       'snake': {
         title: 'Snake (WebAssembly)',
@@ -40,10 +40,11 @@
       },
       'anatomiquiz': {
         title: 'Anatomiquiz',
-        desc: 'En enkel webbapplikation för att plugga anatomi genom quiz – byggd med tillgänglighet och inlärning i fokus.'
+        desc: 'Gratis interaktiv anatomiquiz på svenska – skelett, muskler, neurologi och medicinsk terminologi. Med quiz och flashcards för studenter inom vård och medicin.'
       },
       'leonoria': {
-        desc: 'Ett pågående JavaScript-projekt. Mer information kommer snart.'
+        title: 'Leonoria',
+        desc: 'En levande fantasyvärld för bordsrollspel: utforska procedurellt genererade världar, skapa kartor och karaktärer och väv dina egna legender.'
       }
     },
 
@@ -99,7 +100,9 @@
     var ov = CONFIG.descriptions[repo.name] || CONFIG.descriptions[repo.name.toLowerCase()] || {};
     var title = ov.title || prettify(repo.name);
     var desc  = ov.desc  || repo.description || CONFIG.fallbackDesc;
-    var demo  = ov.demo  || (repo.homepage && repo.homepage.trim() ? repo.homepage.trim() : null);
+    var demo  = ov.demo
+      || (repo.homepage && repo.homepage.trim() ? repo.homepage.trim() : null)
+      || (repo.has_pages ? 'https://' + CONFIG.username + '.github.io/' + repo.name + '/' : null);
 
     var meta = [];
     if (repo.language) {
@@ -163,7 +166,7 @@
   /* ── localStorage-cache ─────────────────────────────────────
      Sparar GitHub-svaret per användarnamn så att återkommande
      besökare laddar projekten direkt, utan nytt API-anrop. */
-  var CACHE_KEY = 'norrtou_repos_' + CONFIG.username;
+  var CACHE_KEY = 'norrtou_repos_v2_' + CONFIG.username;
 
   function readCache() {
     if (!CONFIG.cacheMinutes) return null;
@@ -189,7 +192,7 @@
     return repos.map(function (r) {
       return {
         name: r.name, description: r.description, homepage: r.homepage,
-        html_url: r.html_url, language: r.language,
+        html_url: r.html_url, language: r.language, has_pages: r.has_pages,
         stargazers_count: r.stargazers_count, pushed_at: r.pushed_at,
         fork: r.fork, archived: r.archived, private: r.private
       };
