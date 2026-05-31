@@ -14,8 +14,32 @@
   <meta property="og:locale" content="sv_SE">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@200;300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hem", "item": "https://norrtou.se/"}, {"@type": "ListItem", "position": 2, "name": "Projekt", "item": "https://norrtou.se/projects.html"}]}
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Projekt – norrtou Creations",
+    "url": "https://norrtou.se/projects.html",
+    "description": "Appar, webbappar, spel och experiment från norrtou Creations.",
+    "isPartOf": { "@id": "https://norrtou.se/#site" },
+    "about": { "@id": "https://norrtou.se/#org" },
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Norrtounia – The Dark Forest", "url": "https://norrtou.github.io/norrtounia" },
+        { "@type": "ListItem", "position": 2, "name": "Snake (WebAssembly)", "url": "https://github.com/norrtou/snake" },
+        { "@type": "ListItem", "position": 3, "name": "Anatomiquiz", "url": "https://github.com/norrtou/anatomiquiz" },
+        { "@type": "ListItem", "position": 4, "name": "Leonoria", "url": "https://github.com/norrtou/leonoria" }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -58,7 +82,21 @@
     <p class="label r">Live från GitHub</p>
     <h2 class="heading r d1" id="repos-h" style="margin-top:.75rem;">Publika repositories</h2>
 
-    <div class="repo-grid" id="repo-grid" aria-live="polite"></div>
+    <p class="body-copy r d2" style="margin-top:1rem;max-width:720px;">
+      Bland projekten finns
+      <a href="https://norrtou.github.io/norrtounia" target="_blank" rel="noopener noreferrer">Norrtounia</a> –
+      ett textbaserat dungeon crawler-äventyr i webbläsaren –
+      <a href="https://github.com/norrtou/snake" target="_blank" rel="noopener noreferrer">Snake</a> byggt i WebAssembly,
+      och <a href="https://github.com/norrtou/anatomiquiz" target="_blank" rel="noopener noreferrer">Anatomiquiz</a>,
+      en webbapp för att plugga anatomi. Listan nedan hämtas live från
+      <a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer">vårt GitHub</a> och uppdateras automatiskt.
+    </p>
+
+    <div class="repo-grid" id="repo-grid" aria-live="polite">
+      <noscript>
+        <p class="repo-status">Aktivera JavaScript för att se den live-uppdaterade projektlistan, eller besök <a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer">github.com/norrtou</a> direkt.</p>
+      </noscript>
+    </div>
 
     <div class="callout-box r" style="margin-top:3.5rem;">
       <p class="callout-text">Vill du se mer, följa utvecklingen eller bidra? Allt ligger öppet på GitHub.</p>

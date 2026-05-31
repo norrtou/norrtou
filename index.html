@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="02Bwr6E3PKLPDRUFOK4KOAoE5hbMiEAge9qRM82tbBA" />
   <title>norrtou Creations – Utveckling av appar & webbappar i Skåne</title>
-  <meta name="description" content="norrtou Creations är en studio i Skåne som bygger appar och webbappar med fokus på tillgänglighet, prestanda och människan. Vi erbjuder även copywriting, SEO och digital strategi.">
+  <meta name="description" content="norrtou Creations bygger appar och webbappar i Skåne – med fokus på tillgänglighet och människan. Vi erbjuder även copywriting, SEO och digital strategi.">
   <meta name="author" content="norrtou Creations">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://norrtou.se/">
@@ -30,13 +30,33 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "ProfessionalService"],
         "@id": "https://norrtou.se/#org",
         "name": "norrtou Creations",
         "url": "https://norrtou.se",
         "description": "Studio i Norrto, Skåne som utvecklar appar och webbappar med fokus på tillgänglighet och människan. Erbjuder även copywriting, SEO och digital strategi.",
         "foundingLocation": { "@type": "Place", "name": "Norrto, Skåne, Sverige" },
-        "founder": { "@type": "Person", "name": "Daniel", "jobTitle": "Utvecklare" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Norrto",
+          "addressRegion": "Skåne",
+          "addressCountry": "SE"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 55.0, "longitude": 13.0 },
+        "areaServed": [
+          { "@type": "Country", "name": "Sverige" },
+          { "@type": "AdministrativeArea", "name": "Skåne" }
+        ],
+        "knowsAbout": [
+          "Apputveckling", "Webbutveckling", "Webbappar", "Tillgänglighet (WCAG)",
+          "WebAssembly", "Copywriting", "SEO", "Digital strategi"
+        ],
+        "founder": {
+          "@type": "Person",
+          "@id": "https://norrtou.se/about.html#daniel",
+          "name": "Daniel",
+          "jobTitle": "Utvecklare"
+        },
         "sameAs": [
           "https://github.com/norrtou",
           "https://www.linkedin.com/in/danielmedin"

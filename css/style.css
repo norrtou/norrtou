@@ -941,6 +941,54 @@ textarea.form-input { min-height: 120px; }
 .footer-social svg { width: 16px; height: 16px; }
 
 
+/* ── 14b. FAQ (native details) ────────────────────────────── */
+
+.faq-list { display: flex; flex-direction: column; gap: .75rem; }
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 0 1.5rem;
+  transition: border-color var(--dur-fast), box-shadow var(--dur-fast);
+}
+.faq-item:hover { border-color: var(--rule-2); }
+.faq-item[open] { box-shadow: var(--shadow-sm); }
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  font-family: var(--ff-head);
+  font-weight: 500;
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--ff-mono);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--copper);
+  line-height: 1;
+  transition: transform var(--dur-fast) var(--ease-out);
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p {
+  margin: 0;
+  padding: 0 0 1.3rem;
+  font-size: .95rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ink-2);
+  max-width: 70ch;
+}
+
+
 /* ── 15. Scroll-reveal ────────────────────────────────────── */
 
 .r { opacity: 0; transform: translateY(22px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
