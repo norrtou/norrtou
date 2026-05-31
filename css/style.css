@@ -737,6 +737,30 @@ section.alt-bg { background: var(--bg-2); }
 }
 .repo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--rule-2); }
 
+/* Skärmbild överst på kort (stående mobilbilder visas som en liten "app-skärm") */
+.repo-card .repo-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 210px;
+  margin: -1.75rem -1.65rem 1.35rem;
+  padding: 1.1rem;
+  background: linear-gradient(155deg, var(--bg-2) 0%, var(--copper-bg) 100%);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.repo-card .repo-media img {
+  max-height: 178px;
+  max-width: 72%;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(32,33,30,.08);
+  box-shadow: 0 8px 22px rgba(32,33,30,.20);
+  transition: transform var(--dur-mid) var(--ease);
+}
+.repo-card:hover .repo-media img { transform: translateY(-3px) scale(1.02); }
+
 .repo-card .repo-top { display: flex; align-items: center; gap: .55rem; margin-bottom: .75rem; }
 .repo-card .repo-ico { color: var(--copper); flex-shrink: 0; line-height: 0; }
 .repo-card .repo-ico svg { width: 16px; height: 16px; }

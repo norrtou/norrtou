@@ -24,7 +24,8 @@
      * Egen text per repo. Skriv repo-namnet som nyckel.
      * 'title'  – snyggare visningsnamn (valfritt; annars repo-namnet)
      * 'desc'   – din egen beskrivning (vinner över GitHubs egen text)
-     * 'demo'   – länk till live-demo (valfritt; annars repots 'homepage' om den finns)
+     * 'demo'   – länk till appen/sidan (valfritt; annars repots Pages-sida om den finns)
+     * 'image'  – sökväg till skärmdump som visas överst på kortet, t.ex. '/img/namn.webp' (valfritt)
      *
      * Lägg till nya rader efter behov — repos utan egen text använder
      * automatiskt GitHubs beskrivning.
@@ -32,7 +33,8 @@
     descriptions: {
       'norrtounia': {
         title: 'Norrtounia — The Dark Forest',
-        desc: 'Ett textbaserat retro-dungeon crawler i en mörk fantasyvärld. Träd in i Norrtounias förbannade skog, där skuggor vandrar – överlever du?'
+        desc: 'Ett textbaserat retro-dungeon crawler i en mörk fantasyvärld. Träd in i Norrtounias förbannade skog, där skuggor vandrar – överlever du?',
+        image: '/img/norrtounia.webp'
       },
       'snake': {
         title: 'Snake (WebAssembly)',
@@ -40,11 +42,13 @@
       },
       'anatomiquiz': {
         title: 'Anatomiquiz',
-        desc: 'Gratis interaktiv anatomiquiz på svenska – skelett, muskler, neurologi och medicinsk terminologi. Med quiz och flashcards för studenter inom vård och medicin.'
+        desc: 'Gratis interaktiv anatomiquiz på svenska – skelett, muskler, neurologi och medicinsk terminologi. Med quiz och flashcards för studenter inom vård och medicin.',
+        image: '/img/anatomiquiz.webp'
       },
       'leonoria': {
         title: 'Leonoria',
-        desc: 'En levande fantasyvärld för bordsrollspel: utforska procedurellt genererade världar, skapa kartor och karaktärer och väv dina egna legender.'
+        desc: 'En levande fantasyvärld för bordsrollspel: utforska procedurellt genererade världar, skapa kartor och karaktärer och väv dina egna legender.',
+        image: '/img/leonoria.webp'
       }
     },
 
@@ -116,7 +120,16 @@
       links += '<a href="' + esc(demo) + '" target="_blank" rel="noopener noreferrer">↗ Testa appen</a>';
     }
 
-    return '<article class="repo-card r">' +
+    var media = '';
+    if (ov.image) {
+      var mhref = demo || repo.html_url;
+      media = '<a class="repo-media" href="' + esc(mhref) + '" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">' +
+                '<img src="' + esc(ov.image) + '" alt="Skärmbild av ' + esc(title) + '" loading="lazy" decoding="async">' +
+              '</a>';
+    }
+
+    return '<article class="repo-card r' + (ov.image ? ' has-media' : '') + '">' +
+             media +
              '<div class="repo-top"><span class="repo-ico">' + GH_ICON + '</span>' +
                '<h3>' + esc(title) + '</h3></div>' +
              '<p class="repo-desc">' + esc(desc) + '</p>' +
