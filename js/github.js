@@ -48,7 +48,12 @@
     },
 
     /* Fallback-text för repos som varken har egen eller GitHub-beskrivning */
-    fallbackDesc: 'Ett projekt under utveckling — mer information kommer.'
+    fallbackDesc: 'Ett projekt under utveckling — mer information kommer.',
+
+    /* Hur länge svaret från GitHub sparas i webbläsaren (minuter).
+       Inom den tiden laddas projekten direkt utan nytt API-anrop.
+       Sätt till 0 för att stänga av cachning. */
+    cacheMinutes: 60
   };
   /* ──────────────────────── slut på redigerbar del ─────────── */
 
@@ -155,11 +160,55 @@
       '" target="_blank" rel="noopener noreferrer">github.com/' + esc(CONFIG.username) + '</a>.</p>';
   }
 
+  /* ── localStorage-cache ─────────────────────────────────────
+     Sparar GitHub-svaret per användarnamn så att återkommande
+     besökare laddar projekten direkt, utan nytt API-anrop. */
+  var CACHE_KEY = 'norrtou_repos_' + CONFIG.username;
+
+  function readCache() {
+    if (!CONFIG.cacheMinutes) return null;
+    try {
+      var raw = window.localStorage.getItem(CACHE_KEY);
+      if (!raw) return null;
+      var obj = JSON.parse(raw);
+      if (!obj || !Array.isArray(obj.data)) return null;
+      var ageMs = Date.now() - obj.t;
+      return { data: obj.data, fresh: ageMs < CONFIG.cacheMinutes * 60000 };
+    } catch (e) { return null; }
+  }
+
+  function writeCache(data) {
+    if (!CONFIG.cacheMinutes) return;
+    try {
+      window.localStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), data: data }));
+    } catch (e) { /* full eller avstängd lagring — ignoreras */ }
+  }
+
+  /* Behåll bara fälten vi använder, så cachen hålls liten */
+  function slim(repos) {
+    return repos.map(function (r) {
+      return {
+        name: r.name, description: r.description, homepage: r.homepage,
+        html_url: r.html_url, language: r.language,
+        stargazers_count: r.stargazers_count, pushed_at: r.pushed_at,
+        fork: r.fork, archived: r.archived, private: r.private
+      };
+    });
+  }
+
   function init() {
     var grid = document.getElementById('repo-grid');
     if (!grid) return;
 
     var limit = parseInt(grid.getAttribute('data-limit'), 10) || 0;
+
+    /* Färsk cache → rendera direkt, inget anrop */
+    var cached = readCache();
+    if (cached && cached.fresh) {
+      render(grid, cached.data, limit);
+      return;
+    }
+
     skeleton(grid, limit || 4);
 
     fetch('https://api.github.com/users/' + CONFIG.username + '/repos?per_page=100&sort=pushed', {
@@ -171,9 +220,18 @@
       })
       .then(function (repos) {
         if (!Array.isArray(repos)) throw new Error('Oväntat svar');
-        render(grid, repos, limit);
+        var data = slim(repos);
+        writeCache(data);
+        render(grid, data, limit);
       })
-      .catch(function () { fail(grid); });
+      .catch(function () {
+        /* Hämtning misslyckades — visa gammal cache hellre än felruta */
+        if (cached && cached.data.length) {
+          render(grid, cached.data, limit);
+        } else {
+          fail(grid);
+        }
+      });
   }
 
   if (document.readyState === 'loading') {
