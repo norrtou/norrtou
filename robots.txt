@@ -1,4 +1,4 @@
-# norrtou Creations — robots.txt
+# Norrtou Creations — robots.txt
 # https://norrtou.se
 
 User-agent: *

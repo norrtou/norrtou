@@ -1,6 +1,6 @@
-# norrtou Creations
+# Norrtou Creations
 
-> norrtou Creations är en enmansstudio i Norrto, Skåne som utvecklar appar och webbappar med fokus på tillgänglighet och människan. Studion grundades 2019 inom copywriting och kommunikation och har sedan 2026 utveckling som huvudfokus. Bakom studion står Daniel – utvecklare med bakgrund som skribent sedan 90-talet och kommunikationsstrateg. Arbetar i hela Sverige och internationellt på engelska.
+> Norrtou Creations är en enmansstudio i Norrto, Skåne som utvecklar appar och webbappar med fokus på tillgänglighet och människan. Studion grundades 2019 inom copywriting och kommunikation och har sedan 2026 utveckling som huvudfokus. Bakom studion står Daniel – utvecklare med bakgrund som skribent sedan 90-talet och kommunikationsstrateg. Arbetar i hela Sverige och internationellt på engelska.
 
 ## Huvudfokus: utveckling
 
@@ -15,6 +15,10 @@
 - [SEO](https://norrtou.se/services/seo.html): Teknisk SEO, strukturerad data och innehåll som både Google, AI och besökare gillar.
 - [Sociala medier & podcast](https://norrtou.se/services/socialamedier-podcast.html): Strategi och produktion för en närvaro som håller.
 
+## Nytt från studion
+
+- [Nyheter & blogg](https://norrtou.se/blog/): Lanseringar, nya projekt och tankar om kod, ord och tillgänglighet. Uppdateras löpande.
+
 ## Om & kontakt
 
 - [Om studion](https://norrtou.se/about.html): Bakgrund, kompetenser och hur ord och kod hänger ihop.
@@ -24,7 +28,7 @@
 
 ## Fakta
 
-- Namn: norrtou Creations
+- Namn: Norrtou Creations
 - Ort: Norrto, Skåne, Sverige
 - Grundat: 2019
 - Inriktning sedan 2026: utveckling av appar och webbappar

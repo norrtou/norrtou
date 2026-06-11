@@ -1,0 +1,12 @@
+{
+  "_kommentar": "Lägg nyaste inlägget ÖVERST. Varje inlägg behöver: slug (filnamn utan .html), title, date (ÅÅÅÅ-MM-DD), tag och excerpt. Skapa själva sidan genom att kopiera blog/_template.html till blog/<slug>.html och fylla i.",
+  "posts": [
+    {
+      "slug": "ny-webbplats-2026",
+      "title": "Ny kostym, samma hjärta – norrtou.se i ny version",
+      "date": "2026-06-11",
+      "tag": "Studion",
+      "excerpt": "Jag har gett norrtou.se en ny, varmare kostym – jordnära toner, mjukare typografi och ännu mer fokus på projekten. Och så har jag byggt den här nyhetssidan."
+    }
+  ]
+}
