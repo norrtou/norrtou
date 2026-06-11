@@ -712,11 +712,15 @@ section { padding: var(--section-pad) 0; }
 
 .hero-actions { display: flex; gap: .85rem; flex-wrap: wrap; }
 
-/* mjuk entré utan att blockera LCP — ren CSS, ingen JS-väntan */
+/* mjuk entré utan att blockera LCP — ren CSS, ingen JS-väntan.
+   hero-desc är LCP-elementet och får ALDRIG starta på opacity:0
+   (Chrome räknar inte texten som renderad förrän den syns =
+   sekunder i "element render delay"). Den glider bara, utan fade. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-kicker, .hero-headline, .hero-sub, .hero-desc, .hero-actions {
+  .hero-kicker, .hero-headline, .hero-sub, .hero-actions {
     animation: rise var(--dur-slow) var(--ease) backwards;
   }
+  .hero-desc     { animation: rise-move var(--dur-slow) var(--ease) backwards; }
   .hero-headline { animation-delay: .06s; }
   .hero-sub      { animation-delay: .14s; }
   .hero-desc     { animation-delay: .2s; }
@@ -725,6 +729,21 @@ section { padding: var(--section-pad) 0; }
 @keyframes rise {
   from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes rise-move {
+  from { transform: translateY(22px); }
+  to   { transform: translateY(0); }
+}
+
+/* Sidhuvuden (undersidor): samma entré som heron, ren CSS utan
+   JS-reveal. h1 + ingress är LCP-kandidater → glider utan fade. */
+@media (prefers-reduced-motion: no-preference) {
+  .page-hero-inner .label,
+  .page-hero-inner .post-meta { animation: rise var(--dur-slow) var(--ease) backwards; }
+  .page-hero-inner h1,
+  .page-hero-inner .lead { animation: rise-move var(--dur-slow) var(--ease) backwards; }
+  .page-hero-inner h1    { animation-delay: .06s; }
+  .page-hero-inner .lead { animation-delay: .14s; }
 }
 
 .hero-bar {
