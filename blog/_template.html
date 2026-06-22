@@ -13,12 +13,19 @@
        2026-01-01  → publiceringsdatum (ÅÅÅÅ-MM-DD)
        1 jan 2026  → samma datum i läsbar form
        TAGG        → t.ex. Studion, Lansering, Projekt, Tankar
-  3. Skriv innehållet i <div class="post-body"> nedan.
+  3. SEO-REGEL (Bings hårda krav – måste följas):
+       • <title>: UNIK mot alla andra sidor, max ~60 tecken inkl.
+         "| Norrtou Creations". Ingen annan sida får ha samma titel.
+       • description: UNIK mot alla andra sidor, 110–160 tecken.
+         Återanvänd ALDRIG en befintlig sidas titel eller beskrivning.
+       • Ändra robots från "noindex, nofollow" till "index, follow"
+         (mallen är noindex så att själva mallen aldrig indexeras).
+  4. Skriv innehållet i <div class="post-body"> nedan.
      Använd <h2>, <p>, <ul><li>, <blockquote> – de är färdigstylade.
-  4. Lägg till inlägget ÖVERST i blog/posts.json (slug, title,
+  5. Lägg till inlägget ÖVERST i blog/posts.json (slug, title,
      date, tag, excerpt) – då dyker det upp på startsidan och
      nyhetssidan automatiskt.
-  5. Lägg gärna till URL:en i sitemap.xml.
+  6. Lägg till URL:en i sitemap.xml.
   ════════════════════════════════════════════════════════════
 -->
 <html lang="sv">
@@ -27,7 +34,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TITEL | Norrtou Creations</title>
   <meta name="description" content="BESKRIVNING">
-  <meta name="robots" content="index, follow">
+  <!-- Mallen är noindex; ändra till "index, follow" i det riktiga inlägget. -->
+  <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://norrtou.se/blog/SLUG.html">
   <script>document.documentElement.className += ' js';</script>
   <meta property="og:type" content="article">

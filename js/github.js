@@ -43,6 +43,7 @@
       'anatomiquiz': {
         title: 'Anatomiquiz',
         desc: 'Gratis interaktiv anatomiquiz på svenska – skelett, muskler, neurologi och medicinsk terminologi. Med quiz och flashcards för studenter inom vård och medicin.',
+        demo: 'https://anatomiquiz.se',
         image: '/img/anatomiquiz.webp'
       },
       'leonoria': {
