@@ -1518,6 +1518,14 @@ textarea.form-input { min-height: 9rem; resize: vertical; }
   letter-spacing: .08em;
   color: var(--ink-dim);
 }
+.footer-copy a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--rule);
+  transition: color var(--dur-fast), text-decoration-color var(--dur-fast);
+}
+.footer-copy a:hover { color: var(--ink); text-decoration-color: currentColor; }
 .footer-nav { display: flex; gap: .25rem; flex-wrap: wrap; }
 .footer-nav a {
   font-size: .9rem;
