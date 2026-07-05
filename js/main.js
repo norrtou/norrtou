@@ -21,6 +21,12 @@
   var nav = document.getElementById('site-nav');
   if (nav) {
     requestAnimationFrame(function () { nav.classList.add('nav--ready'); });
+    /* När inglidningen är klar: släpp transformen (CSS .nav--settled),
+       annars blir naven containing block för den fixerade menyn. */
+    nav.addEventListener('animationend', function () {
+      nav.classList.add('nav--settled');
+    });
+    if (prefersReducedMotion) nav.classList.add('nav--settled');
   }
 
   /* ── 2. Helskärmsmeny ─────────────────────────────────── */
