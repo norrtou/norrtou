@@ -736,7 +736,7 @@ html:not(.js) .about-heading-reveal { transform: none; }
   transition: transform 0.7s var(--ease-out-expo);
 }
 .contact-arrow svg { width: 100%; height: 100%; }
-.contact-cta:hover .contact-arrow { transform: translate(10%, -10%); }
+.contact-cta:hover .contact-arrow { transform: translate(10%, 10%); }
 
 .contact-grid {
   display: grid;
