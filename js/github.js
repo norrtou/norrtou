@@ -53,7 +53,7 @@
       },
       'hand': {
         title: 'Hands',
-        desc: 'Allt om den mänskliga handen – anatomi, fysiologi, hälsa och träning, samlat i en app.',
+        desc: 'Allt om den mänskliga handen – anatomi, fysiologi, hälsa och träning, samlat i en app. Testbar version kommer snart.',
         image: '/img/hands.webp'
       },
       'smallsteps': {
