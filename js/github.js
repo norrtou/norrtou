@@ -50,6 +50,21 @@
         title: 'Leonoria',
         desc: 'En levande fantasyvärld för bordsrollspel: utforska procedurellt genererade världar, skapa kartor och karaktärer och väv dina egna legender.',
         image: '/img/leonoria.webp'
+      },
+      'hand': {
+        title: 'Hands',
+        desc: 'Allt om den mänskliga handen – anatomi, fysiologi, hälsa och träning, samlat i en app.',
+        image: '/img/hands.webp'
+      },
+      'smallsteps': {
+        title: 'Small Steps',
+        desc: 'En webbapp som hjälper dig bryta ner till synes stora uppgifter i små, hanterbara steg.',
+        image: '/img/smallsteps.webp'
+      },
+      'activitydiary': {
+        title: 'Activity Diary',
+        desc: 'En enkel aktivitetsdagbok, användbar inom arbetsterapi och rehabilitering.',
+        image: '/img/activitydiary.webp'
       }
     },
 
@@ -148,8 +163,15 @@
       return hide.indexOf(r.name.toLowerCase()) === -1;
     });
 
-    /* Senast uppdaterade först */
+    /* Projekt med skärmbild först, utan skärmbild sist —
+       inom varje grupp senast uppdaterade först */
+    function hasImage(r) {
+      var ov = CONFIG.descriptions[r.name] || CONFIG.descriptions[r.name.toLowerCase()] || {};
+      return ov.image ? 1 : 0;
+    }
     list.sort(function (a, b) {
+      var img = hasImage(b) - hasImage(a);
+      if (img !== 0) return img;
       return new Date(b.pushed_at) - new Date(a.pushed_at);
     });
 

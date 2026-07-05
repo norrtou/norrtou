@@ -7,76 +7,72 @@
   <meta name="description" content="Sidan kunde inte hittas. Gå tillbaka till startsidan för Norrtou Creations eller utforska projekt, tjänster och nyheter.">
   <script>document.documentElement.className += ' js';</script>
   <meta name="robots" content="noindex, follow">
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/outfit-400-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-var-italic-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="/fonts/jetbrains-mono-500-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="/fonts/marcellus-400-latin.woff2" crossorigin>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#faf5ec">
+  <meta name="theme-color" content="#fafafa">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
-<nav class="site-nav scrolled" id="site-nav" aria-label="Huvudnavigation">
-  <a href="/" class="nav-brand" aria-label="Norrtou Creations – startsida">
-    <span class="brand-norrtou">norrtou</span>
-    <span class="brand-creations">Creations</span>
-  </a>
-  <ul class="nav-links" role="list">
-    <li><a href="/about.html">Om</a></li>
-    <li><a href="/services.html">Tjänster</a></li>
-    <li><a href="/projects.html">Projekt</a></li>
-    <li><a href="/blog/">Nytt</a></li>
-    <li><a href="/contact.html">Kontakt</a></li>
-  </ul>
-  <div class="nav-social" aria-label="Sociala medier">
-    <a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12C24 5.37 18.63 0 12 0z"/></svg></a>
-    <a href="https://www.linkedin.com/in/danielmedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+<nav id="site-nav" aria-label="Huvudnavigation">
+  <div class="nav-grid">
+    <a class="nav-logo" href="/" aria-label="Norrtou Creations – startsida">
+      <img class="nav-logo-img" src="/img/nclogo-white.png" alt="" width="559" height="639">
+      <span class="nav-logo-mark">Norrtou<br>Creations</span>
+    </a>
+    <div class="nav-group nav-group-1">
+      <a href="/#om">Om</a>
+      <a href="/#tjanster">Tjänster</a>
+      <a href="/#projekt">Projekt</a>
+    </div>
+    <div class="nav-group nav-group-2">
+      <a href="/#norrto">Norrto</a>
+      <a href="/blog/">Nytt</a>
+    </div>
+    <a class="nav-contact" href="/#kontakt">Kontakt</a>
+    <button class="nav-menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Öppna meny">
+      <span class="nav-menu-label">Meny</span>
+    </button>
   </div>
-  <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Öppna meny"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-links">
+      <a href="/#om">Om</a>
+      <a href="/#tjanster">Tjänster</a>
+      <a href="/#projekt">Projekt</a>
+      <a href="/#norrto">Norrto</a>
+      <a href="/blog/">Nytt</a>
+      <a href="/#kontakt">Kontakt</a>
+    </div>
+    <div class="mobile-menu-contact">
+      <a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer">github.com/norrtou</a>
+      <a href="https://www.linkedin.com/in/danielmedin" target="_blank" rel="noopener noreferrer">linkedin.com/in/danielmedin</a>
+      <span>Norrto, Skåne · 55° N · 13° E</span>
+    </div>
+  </div>
 </nav>
 
-<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Meny">
-  <nav class="mobile-menu-links"><a href="/about.html">Om</a><a href="/services.html">Tjänster</a><a href="/projects.html">Projekt</a><a href="/blog/">Nytt</a><a href="/contact.html">Kontakt</a></nav>
-  <div class="mobile-menu-social"><a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/danielmedin" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
-</div>
-
-<div class="page-hero" style="min-height:70vh;display:flex;align-items:center;">
-  <div class="page-hero-inner">
-    <p class="label">Fel 404</p>
-    <h1>Sidan kunde inte hittas</h1>
-    <p class="lead">Länken kan vara gammal eller felstavad. Kanske letar du efter något av det här:</p>
-    <div class="link-list" style="max-width:520px;">
-      <a href="/">Startsidan<span class="link-arrow" aria-hidden="true">→</span></a>
-      <a href="/projects.html">Projekt<span class="link-arrow" aria-hidden="true">→</span></a>
-      <a href="/services.html">Tjänster<span class="link-arrow" aria-hidden="true">→</span></a>
-      <a href="/contact.html">Kontakt<span class="link-arrow" aria-hidden="true">→</span></a>
+<main>
+  <section class="notfound">
+    <h1>404</h1>
+    <p>Den här sidan har gått vilse någonstans ute på fälten. Det du letar efter finns förmodligen på startsidan – eller så har adressen ändrats.</p>
+    <div class="link-list">
+      <a href="/">Till startsidan<span class="link-arrow" aria-hidden="true">→</span></a>
+      <a href="/#projekt">Se projekten<span class="link-arrow" aria-hidden="true">→</span></a>
+      <a href="/blog/">Läs det senaste<span class="link-arrow" aria-hidden="true">→</span></a>
     </div>
-  </div>
-</div>
+  </section>
+</main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-inner">
-      <div class="footer-brand"><div class="fb-n">norrtou</div><div class="fb-c">Creations</div></div>
-      <p class="footer-copy">© 2026 Norrtou Creations · Norrto, Skåne · <a href="/privacy.html">Integritet</a></p>
-      <nav class="footer-nav" aria-label="Sidfotslänkar">
-        <a href="/about.html">Om</a>
-        <a href="/services.html">Tjänster</a>
-        <a href="/projects.html">Projekt</a>
-        <a href="/blog/">Nytt</a>
-        <a href="/contact.html">Kontakt</a>
-      </nav>
-      <div class="footer-social">
-        <a href="https://github.com/norrtou" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12C24 5.37 18.63 0 12 0z"/></svg></a>
-        <a href="https://www.linkedin.com/in/danielmedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
-      </div>
-    </div>
+<footer>
+  <div class="footer-logo-area">
+    <img class="footer-logo-img" src="/img/nclogo-black.png" alt="" width="559" height="639" loading="lazy">
+    <span class="footer-logo">Norrtou Creations</span>
   </div>
+  <p class="footer-copy">© 2026 Norrtou Creations · Norrto, Skåne · <a href="/privacy.html">Integritetspolicy</a></p>
 </footer>
 
 <script src="/js/main.js" defer></script>

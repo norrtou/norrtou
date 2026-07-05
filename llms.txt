@@ -1,28 +1,23 @@
 # Norrtou Creations
 
-> Norrtou Creations är en enmansstudio i Norrto, Skåne som utvecklar appar och webbappar med fokus på tillgänglighet och människan. Studion grundades 2019 inom copywriting och kommunikation och har sedan 2026 utveckling som huvudfokus. Bakom studion står Daniel – utvecklare med bakgrund som skribent sedan 90-talet och kommunikationsstrateg. Arbetar i hela Sverige och internationellt på engelska.
+> Norrtou Creations är en enmansstudio i Norrto, Skåne som utvecklar appar och webbappar med fokus på tillgänglighet och människan. Studion grundades 2019 inom copywriting och kommunikation och har sedan 2026 utveckling som huvudfokus. Bakom studion står Daniel – utvecklare med bakgrund som skribent sedan 90-talet, utbildad medicinsk sekreterare och sedan 2026 student på arbetsterapeutprogrammet vid Lunds universitet. Arbetar i hela Sverige och internationellt på engelska.
 
-## Huvudfokus: utveckling
+Webbplatsen är en one-pager: sektionerna nås via ankare på startsidan.
 
-- [Appar & tillgänglighet](https://norrtou.se/services/accessibilitysolutions.html): Webbappar och verktyg inom rehab, arbetsterapi och hälsa. Inkluderande och användarvänligt, byggt enligt WCAG.
-- [Webbutveckling](https://norrtou.se/services/webbutveckling.html): Statiska sajter, WebAssembly och GitHub Pages. Snabbt, säkert och SEO-optimerat.
-- [Projekt](https://norrtou.se/projects.html): Publika projekt (appar, webbappar, spel) som hämtas live från GitHub – t.ex. Norrtounia (dungeon crawler), Snake (WebAssembly) och Anatomiquiz.
+## Sektioner på startsidan
 
-## Övriga tjänster
-
-- [Copywriting](https://norrtou.se/services/copywriting.html): Strategiska texter på svenska och engelska – webb, sociala medier, e-post samt kvalificerade och tekniska texter.
-- [Digital strategi](https://norrtou.se/services/digital-strategi.html): Nulägesanalys, kanalstrategi, målgrupp och innehållsplan som hänger ihop.
-- [SEO](https://norrtou.se/services/seo.html): Teknisk SEO, strukturerad data och innehåll som både Google, AI och besökare gillar.
-- [Sociala medier & podcast](https://norrtou.se/services/socialamedier-podcast.html): Strategi och produktion för en närvaro som håller.
+- [Om studion](https://norrtou.se/#om): Bakgrund, filosofi och grundpelare – ord, struktur och teknik.
+- [Tjänster](https://norrtou.se/#tjanster): Appar & tillgänglighet (rehab, arbetsterapi, hälsa – WCAG), webbutveckling (statiska sajter, WebAssembly, teknisk SEO), text & innehåll (copywriting, SEO, dokumentation) samt strategi & produktion (digital strategi, sociala medier, podcast).
+- [Projekt](https://norrtou.se/#projekt): Publika projekt (appar, webbappar, spel) som hämtas live från GitHub – t.ex. Anatomiquiz (anatomiquiz.se), Norrtounia (dungeon crawler), Leonoria och Snake (WebAssembly).
+- [Norrto](https://norrtou.se/#norrto): Svartvitt fotografi från de öppna skånska landskapen kring Norrto.
+- [Kontakt](https://norrtou.se/#kontakt): Kontaktformulär. Svar vanligtvis inom 24 timmar.
 
 ## Nytt från studion
 
 - [Nyheter & blogg](https://norrtou.se/blog/): Lanseringar, nya projekt och tankar om kod, ord och tillgänglighet. Uppdateras löpande.
 
-## Om & kontakt
+## Kontakt
 
-- [Om studion](https://norrtou.se/about.html): Bakgrund, kompetenser och hur ord och kod hänger ihop.
-- [Kontakt](https://norrtou.se/contact.html): Kontaktformulär. Svar vanligtvis inom 24 timmar.
 - GitHub: https://github.com/norrtou
 - LinkedIn: https://www.linkedin.com/in/danielmedin
 

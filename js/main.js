@@ -1,202 +1,127 @@
 /**
- * norrtou CREATIONS — main.js
- * Creative Studio & Narrative Engineering
- * https://norrtou.se
+ * NORRTOU CREATIONS — main.js
+ * Interaktioner för norrtou.se. Vanilla JS, inget byggsteg.
  *
- * Modules (no build tools required — vanilla ES5-compatible):
- *   1. Hero entrance animation
- *   2. Navigation scroll behaviour
- *   3. Mobile menu toggle
- *   4. Scroll-reveal (IntersectionObserver)
- *   5. Active nav-link highlighting
- *   6. Contact form feedback (static sites)
+ *   1. Nav-entré (naven glider ner; CSS pausar animationen tills .nav--ready)
+ *   2. Helskärmsmeny (naven byter från mix-blend-mode:difference till normal
+ *      medan menyn är öppen — annars blendas den mörka overlayen sönder)
+ *   3. Scrollstyrda reveals via IntersectionObserver
+ *      (window.norrtouObserve exponeras åt github.js och blog.js)
+ *   4. Hero-parallax
+ *   5. Kontaktformulär (Formspree via fetch, feedback i .form-note)
  */
 
 (function () {
   'use strict';
 
-  /* ─────────────────────────────────────────────────────────
-     1. Hero Entrance Animation
-     Adds .loaded immediately — no setTimeout delay.
-     hero-desc is the LCP element and must not be held back.
-     CSS transitions still run, they just start right away.
-  ───────────────────────────────────────────────────────── */
-  function initHero() {
-    var headline = document.getElementById('hero-headline');
-    var sub      = document.getElementById('hero-sub');
-    var desc     = document.getElementById('hero-desc');
-    var actions  = document.getElementById('hero-actions');
+  var prefersReducedMotion =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!headline) return;
-
-    if (headline) headline.classList.add('loaded');
-    if (sub)      sub.classList.add('loaded');
-    if (desc)     desc.classList.add('loaded');
-    if (actions)  actions.classList.add('loaded');
+  /* ── 1. Nav-entré ─────────────────────────────────────── */
+  var nav = document.getElementById('site-nav');
+  if (nav) {
+    requestAnimationFrame(function () { nav.classList.add('nav--ready'); });
   }
 
+  /* ── 2. Helskärmsmeny ─────────────────────────────────── */
+  var menuBtn = document.getElementById('menu-btn');
+  var mobileMenu = document.getElementById('mobile-menu');
 
-  /* ─────────────────────────────────────────────────────────
-     2. Navigation Scroll Behaviour
-     Initial state check deferred to rAF to avoid forced
-     reflow at page load.
-  ───────────────────────────────────────────────────────── */
-  function initNav() {
-    var nav = document.getElementById('site-nav');
-    if (!nav) return;
+  if (nav && menuBtn && mobileMenu) {
+    var menuLabel = menuBtn.querySelector('.nav-menu-label');
 
-    var threshold = 80;
-    var ticking = false;
+    var setMenu = function (open) {
+      nav.classList.toggle('menu-open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      if (menuLabel) menuLabel.textContent = open ? 'Stäng' : 'Meny';
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
 
-    function updateNav() {
-      nav.classList.toggle('scrolled', window.pageYOffset > threshold);
-      ticking = false;
-    }
-
-    function onScroll() {
-      if (!ticking) {
-        requestAnimationFrame(updateNav);
-        ticking = true;
-      }
-    }
-
-    requestAnimationFrame(updateNav);
-    window.addEventListener('scroll', onScroll, { passive: true });
-  }
-
-
-  /* ─────────────────────────────────────────────────────────
-     3. Mobile Menu Toggle
-  ───────────────────────────────────────────────────────── */
-  function initMobileMenu() {
-    var hamburger  = document.getElementById('hamburger');
-    var mobileMenu = document.getElementById('mobile-menu');
-
-    if (!hamburger || !mobileMenu) return;
-
-    function openMenu() {
-      hamburger.setAttribute('aria-expanded', 'true');
-      mobileMenu.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-      hamburger.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    hamburger.addEventListener('click', function () {
-      var isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-      isOpen ? closeMenu() : openMenu();
+    menuBtn.addEventListener('click', function () {
+      setMenu(!nav.classList.contains('menu-open'));
     });
 
-    var menuLinks = mobileMenu.querySelectorAll('a');
-    menuLinks.forEach(function (link) {
-      link.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () { setMenu(false); });
     });
 
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
+      if (e.key === 'Escape' && nav.classList.contains('menu-open')) setMenu(false);
     });
   }
 
+  /* ── 3. Scrollstyrda reveals ──────────────────────────── */
+  var revealClass = function (el) {
+    return el.classList.contains('r') ? 'in' : 'visible';
+  };
 
-  /* ─────────────────────────────────────────────────────────
-     4. Scroll-Reveal (IntersectionObserver)
-  ───────────────────────────────────────────────────────── */
-  function initReveal() {
-    if (!('IntersectionObserver' in window)) {
-      var els = document.querySelectorAll('.r');
-      els.forEach(function (el) { el.classList.add('in'); });
-      /* Expose a no-op so github.js can still reveal its cards */
-      window.norrtouObserve = function (el) { el.classList.add('in'); };
-      return;
-    }
+  var observer = null;
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(revealClass(entry.target));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+    );
+  }
 
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
-        }
+  function observe(el) {
+    if (observer) observer.observe(el);
+    else el.classList.add(revealClass(el));
+  }
+
+  /* github.js och blog.js kopplar in sina kort via den här */
+  window.norrtouObserve = observe;
+
+  document.querySelectorAll('.reveal, .heading-reveal, .r').forEach(observe);
+
+  /* ── 4. Hero-parallax ─────────────────────────────────── */
+  var heroImg = document.getElementById('hero-img');
+  if (heroImg && !prefersReducedMotion) {
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var drift = Math.min(window.scrollY * 0.08, 120);
+        heroImg.style.transform = 'scale(1.08) translateY(' + drift + 'px)';
+        ticking = false;
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    var revealEls = document.querySelectorAll('.r');
-    revealEls.forEach(function (el) { observer.observe(el); });
-
-    /* Let other scripts (github.js) register elements added after load */
-    window.norrtouObserve = function (el) { observer.observe(el); };
-  }
-
-
-  /* ─────────────────────────────────────────────────────────
-     5. Active Nav-Link Highlighting
-     Batch reads before writes to avoid repeated reflows.
-  ───────────────────────────────────────────────────────── */
-  function initActiveNav() {
-    var links = document.querySelectorAll('.nav-links a, .mobile-menu-links a');
-    var path  = window.location.pathname;
-
-    // Read all hrefs first
-    var resolved = [];
-    links.forEach(function (link) {
-      var href = link.getAttribute('href') || '';
-      var a = document.createElement('a');
-      a.href = href;
-      resolved.push(a.pathname);
-    });
-
-    // Then write in one pass
-    links.forEach(function (link, i) {
-      var r = resolved[i];
-      if (
-        r === path ||
-        (r !== '/' && path.indexOf(r.replace(/index\.html$/, '')) === 0)
-      ) {
-        link.setAttribute('aria-current', 'page');
-      }
     });
   }
 
-
-  /* ─────────────────────────────────────────────────────────
-     6. Contact Form Feedback
-  ───────────────────────────────────────────────────────── */
-  function initForm() {
-    var form = document.getElementById('contact-form');
-    if (!form) return;
+  /* ── 5. Kontaktformulär ───────────────────────────────── */
+  var form = document.getElementById('contact-form');
+  if (form && window.fetch) {
+    var note = form.querySelector('.form-note');
+    var setNote = function (msg) { if (note) note.textContent = msg; };
 
     form.addEventListener('submit', function (e) {
-      var actionUrl = form.getAttribute('action');
+      e.preventDefault();
+      setNote('Skickar …');
 
-      if (!actionUrl || actionUrl === '#') {
-        e.preventDefault();
-        var note = form.querySelector('.form-note');
-        if (note) {
-          note.textContent = 'Obs: Koppla formuläret till Formspree eller liknande tjänst.';
-          note.style.color = 'var(--olive-l)';
-        }
-        return;
-      }
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (res) {
+          if (res.ok) {
+            form.reset();
+            setNote('Tack! Ditt meddelande är skickat — jag hör av mig snart.');
+          } else {
+            setNote('Något gick fel. Prova igen, eller hör av dig via LinkedIn.');
+          }
+        })
+        .catch(function () {
+          setNote('Något gick fel. Prova igen, eller hör av dig via LinkedIn.');
+        });
     });
   }
-
-
-  /* ─────────────────────────────────────────────────────────
-     Init
-  ───────────────────────────────────────────────────── */
-  document.addEventListener('DOMContentLoaded', function () {
-    initHero();
-    initNav();
-    initMobileMenu();
-    initReveal();
-    initActiveNav();
-    initForm();
-  });
-
 })();
