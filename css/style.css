@@ -362,28 +362,6 @@ html:not(.js) .about-heading-reveal { transform: none; }
 .about-body + .about-body { margin-top: 1.4em; }
 .about-body a { color: var(--gray-800); }
 
-.value-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4vw 3vw;
-}
-.value-item { border-top: 1px solid var(--gray-200); padding-top: 1.5vw; }
-.value-num {
-  font-family: var(--font-display);
-  font-size: clamp(13px, 1.1vw, 18px);
-  color: var(--gray-400);
-  display: block;
-  margin-bottom: 1vw;
-}
-.value-title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(20px, 2.6vw, 46px);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  color: var(--gray-900);
-}
-
 /* ==========================================================================
    TJÄNSTER — beige panel, 2×2-kortgrid
    ========================================================================== */
@@ -412,14 +390,12 @@ html:not(.js) .about-heading-reveal { transform: none; }
   color: var(--gray-500);
   margin-bottom: 2.2vw;
 }
-.domain-list li {
+.domain-copy {
   font-size: clamp(12px, 0.95vw, 16px);
   color: var(--gray-600);
-  line-height: 1.7;
-  padding: 0.65em 0;
-  border-bottom: 1px solid var(--gray-100);
+  line-height: 1.75;
+  max-width: 34em;
 }
-.domain-list li:last-child { border-bottom: 0; }
 
 /* ==========================================================================
    MELLANSPEL — fullbreddsfoto mellan sektioner
@@ -1058,8 +1034,6 @@ footer {
   .section-label { margin-bottom: 40px; padding-top: 12px; }
 
   .about-heading { font-size: 12vw; margin-bottom: 32px; }
-  .value-list { grid-template-columns: 1fr; gap: 32px; }
-  .value-item { padding-top: 16px; }
 
   .domain-grid { grid-template-columns: 1fr; }
   .domain-card { padding: 24px 0; border-right: 0 !important; }
