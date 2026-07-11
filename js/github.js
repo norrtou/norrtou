@@ -65,6 +65,11 @@
         title: 'Activity Diary',
         desc: 'En enkel aktivitetsdagbok, användbar inom arbetsterapi och rehabilitering.',
         image: '/img/activitydiary.webp'
+      },
+      'hec': {
+        title: 'HEC',
+        desc: 'Ett hand-öga-koordinationstest för yrkesverksamma inom vård, medicin och terapi.',
+        image: '/img/hec.webp'
       }
     },
 
