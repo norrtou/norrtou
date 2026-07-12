@@ -2,6 +2,20 @@
   "_kommentar": "Lägg nyaste inlägget ÖVERST. Varje inlägg behöver: slug (filnamn utan .html), title, date (ÅÅÅÅ-MM-DD), tag och excerpt. Skapa själva sidan genom att kopiera blog/_template.html till blog/<slug>.html och fylla i.",
   "posts": [
     {
+      "slug": "anatomiquiz",
+      "title": "Anatomiquiz.se har uppdaterats",
+      "date": "2026-07-12",
+      "tag": "Projekt",
+      "excerpt": "Webbappen för att öva anatomi och medicinsk terminologi med quiz och flashcards har fått en ny uppdatering – gratis, utan konto och utan kakor."
+    },
+    {
+      "slug": "aktivitetsdagboken",
+      "title": "Aktivitetsdagboken har uppdaterats",
+      "date": "2026-07-12",
+      "tag": "Projekt",
+      "excerpt": "Den digitala aktivitetsdagboken för arbetsterapi har fått en ny uppdatering – kartlägg dygnets aktiviteter, energi och mående direkt i webbläsaren."
+    },
+    {
       "slug": "svartvit-omgorning-2026",
       "title": "Svartvitt och stilrent – norrtou.se i ny skepnad",
       "date": "2026-07-05",
